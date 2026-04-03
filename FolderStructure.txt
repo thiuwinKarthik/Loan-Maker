@@ -1,0 +1,73 @@
+frontend/
+│── public/                             # Static files (favicon, manifest, etc.)
+│   ├── favicon.ico
+│   ├── index.html                      # Main HTML entry point
+│   └── manifest.json
+│
+│── src/
+│   │
+│   ├── api/                            # API integration layer
+│   │   ├── axiosInstance.js            # Central Axios setup
+│   │   ├── authApi.js                 # Authentication-related APIs (login, register)
+│   │   ├── loanApi.js                 # Loan-related APIs (apply, history, recommendations)
+│   │   ├── adminApi.js                # Admin-related APIs (users, loans)
+│   │
+│   ├── assets/                         # Images, icons, logos
+│   │   ├── logo.png
+│   │   ├── banner.jpg
+│   │   └── icons/
+│   │
+│   ├── components/                    # Reusable UI components
+│   │   ├── common/                    # Common components
+│   │   │   ├── Button.jsx
+│   │   │   ├── Input.jsx
+│   │   │   ├── Modal.jsx
+│   │   │   └── Loader.jsx
+│   │   │
+│   │   ├── layout/                    # Layout components
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   └── Footer.jsx
+│   │
+│   ├── hooks/                         # Custom hooks
+│   │   ├── useAuth.js                 # Manage authentication state
+│   │   ├── useApi.js                  # Simplify API calls
+│   │
+│   ├── pages/                         # Application pages
+│   │   ├── auth/                      # Authentication pages
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── ForgotPassword.jsx
+│   │   │
+│   │   ├── user/                      # User-specific pages
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── LoanApply.jsx
+│   │   │   ├── LoanHistory.jsx
+│   │   │   └── Profile.jsx
+│   │   │
+│   │   ├── admin/                     # Admin-specific pages
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── UserList.jsx
+│   │   │   ├── LoanList.jsx
+│   │   │   └── Reports.jsx
+│   │
+│   ├── redux/                         # Redux Toolkit for state management
+│   │   ├── store.js                   # Store configuration
+│   │   ├── authSlice.js               # Auth state & reducers
+│   │   ├── loanSlice.js               # Loan state & reducers
+│   │   └── adminSlice.js              # Admin state & reducers
+│   │
+│   ├── routes/                        # Routing configuration
+│   │   ├── AppRoutes.jsx              # All application routes
+│   │   ├── ProtectedRoute.jsx         # Secured route handling
+│   │
+│   ├── utils/                         # Utility functions & constants
+│   │   ├── validators.js              # Form validations
+│   │   ├── constants.js               # Global constants
+│   │   ├── helpers.js                 # Helper functions
+│   │
+│   ├── App.js                         # Main App component
+│   ├── index.js                       # React entry point
+│   ├── index.css                      # Global styles
+│
+└── package.json                       # Project dependencies & scripts
