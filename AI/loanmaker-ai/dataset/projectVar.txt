@@ -1,0 +1,21 @@
+spring.application.name=loan-maker-backend
+
+# ==========================
+# Database Configuration
+# ==========================
+spring.datasource.url=jdbc:mysql://sql12.freesqldatabase.com:3306/sql12798107?useSSL=false&serverTimezone=UTC
+spring.datasource.username=sql12798107
+spring.datasource.password=bTeBCNdTUP
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+# JPA / Hibernate Configuration
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+# ==========================
+# Server Port
+# ==========================
+server.port=8080
+
+# JWT Secret
+jwt.secret=super-secure-placement-secret-key-2025

@@ -1,0 +1,28 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment
+.env
+
+# Models
+models/
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# Vector DB
+vectorstore/
+chromadb/
+faiss_index/
+
+# Data
+data/
+
+# Cache
+.cache/

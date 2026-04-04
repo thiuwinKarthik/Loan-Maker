@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+numpy
+pandas
+scikit-learn
+joblib
+pydantic
+pytest
+qdrant-client
+openai
+mysql-connector-python
+python-dotenv

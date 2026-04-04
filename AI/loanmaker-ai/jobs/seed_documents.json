@@ -1,0 +1,29 @@
+[
+  {
+    "document_id": "policy-eligibility-01",
+    "collection": "loan_policy_index",
+    "text": "Applicants with credit score below 600 and high EMI ratio are typically marked high risk.",
+    "user_id": 1,
+    "loan_id": null,
+    "document_type": "policy",
+    "risk_level": "high"
+  },
+  {
+    "document_id": "provider-terms-01",
+    "collection": "provider_terms_index",
+    "text": "Provider Alpha offers preferential rates for applicants with stable income and low debt burden.",
+    "user_id": 1,
+    "loan_id": null,
+    "document_type": "provider_terms",
+    "risk_level": "medium"
+  },
+  {
+    "document_id": "user-history-01",
+    "collection": "user_specific_index",
+    "text": "User had one rejected loan due to low score and one pending application with high requested amount.",
+    "user_id": 1,
+    "loan_id": 1001,
+    "document_type": "user_history",
+    "risk_level": "high"
+  }
+]
