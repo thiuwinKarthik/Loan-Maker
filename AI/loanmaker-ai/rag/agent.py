@@ -2,7 +2,7 @@ import json
 import os
 from typing import Any
 
-import google.generativeai as genai
+from google import genai
 from pydantic import ValidationError
 
 from rag.schema import RagEngineResponse
