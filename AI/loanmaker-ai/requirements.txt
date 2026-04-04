@@ -10,3 +10,4 @@ qdrant-client
 openai
 mysql-connector-python
 python-dotenv
+google-generativeai
