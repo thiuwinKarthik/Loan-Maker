@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/layout/Navbar";
 import Sidebar from "../../components/layout/Sidebar";
+import { API_BASE_URL } from "../../shared/config/env";
 import {
   BarChart,
   Bar,
@@ -32,7 +33,7 @@ const Reports = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const resUsers = await fetch("http://localhost:8080/api/users/all", {
+        const resUsers = await fetch(`${API_BASE_URL}/api/users/all`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const usersData = await resUsers.json();
@@ -41,7 +42,7 @@ const Reports = () => {
         const loansWithUser = await Promise.all(
           usersData.map(async (user) => {
             const resLoans = await fetch(
-              `http://localhost:8080/api/loans/applications/${user.id}`,
+              `${API_BASE_URL}/api/loans/applications/${user.id}`,
               { headers: { Authorization: `Bearer ${token}` } }
             );
             const userLoans = resLoans.ok ? await resLoans.json() : [];

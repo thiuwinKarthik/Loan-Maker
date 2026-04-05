@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/layout/Navbar";
+import { API_BASE_URL } from "../../shared/config/env";
 import Sidebar from "../../components/layout/Sidebar";
 import { toast } from "react-toastify";
 
@@ -15,7 +16,7 @@ const UserProfile = () => {
   const getProfile = async () => {
     try {
       const token = localStorage.getItem("token"); // JWT token
-      const response = await fetch("http://localhost:8080/api/users/profile", {
+      const response = await fetch(`${API_BASE_URL}/api/users/profile`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +55,7 @@ const UserProfile = () => {
       setUpdating(true);
       const token = localStorage.getItem("token");
 
-      const response = await fetch("http://localhost:8080/api/users/profile", {
+      const response = await fetch(`${API_BASE_URL}/api/users/profile`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

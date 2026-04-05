@@ -19,7 +19,7 @@ public class CorsConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowCredentials(true);
-        config.setAllowedOriginPatterns(Arrays.asList("http://localhost:5173", "http://localhost:3000","https://timely-tanuki-loan-maker.netlify.app"));
+        config.setAllowedOriginPatterns(Arrays.asList("http://localhost:5173", "https://loan-maker.vercel.app","https://timely-tanuki-loan-maker.netlify.app"));
         config.addAllowedHeader("*");
         config.addAllowedMethod("*");
         config.setMaxAge(3600L);

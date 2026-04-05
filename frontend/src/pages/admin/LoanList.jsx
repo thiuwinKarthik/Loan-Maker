@@ -3,6 +3,7 @@ import Sidebar from "../../components/layout/Sidebar";
 import Navbar from "../../components/layout/Navbar";
 import { toast } from "react-toastify";
 import Modal from "../../components/common/Modal";
+import { API_BASE_URL } from "../../shared/config/env";
 import { Link } from "react-router-dom";
 
 const statusColors = {
@@ -28,7 +29,7 @@ const AdminLoans = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:8080/api/users/all", {
+      const res = await fetch(`${API_BASE_URL}/api/users/all`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Failed to fetch users");
@@ -37,7 +38,7 @@ const AdminLoans = () => {
       const usersWithLoans = await Promise.all(
         data.map(async (user) => {
           const resLoans = await fetch(
-            `http://localhost:8080/api/loans/applications/${user.id}`,
+            `${API_BASE_URL}/api/loans/applications/${user.id}`,
             { headers: { Authorization: `Bearer ${token}` } }
           );
           const loans = resLoans.ok ? await resLoans.json() : [];
@@ -79,7 +80,7 @@ const AdminLoans = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:8080/api/admin/loans/${selectedLoan.id}/${actionType}`,
+        `${API_BASE_URL}/api/admin/loans/${selectedLoan.id}/${actionType}`,
         {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },

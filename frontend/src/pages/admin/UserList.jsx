@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../components/layout/Navbar";
 import Sidebar from "../../components/layout/Sidebar";
+import { API_BASE_URL } from "../../shared/config/env";
 
 
 const UsersPage = () => {
@@ -13,13 +14,13 @@ const UsersPage = () => {
     if (!token) return;
     setLoading(true);
     try {
-      const resAdmin = await fetch("http://localhost:8080/api/users/profile", {
+      const resAdmin = await fetch(`${API_BASE_URL}/api/users/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const adminData = await resAdmin.json();
       setAdmin(adminData);
 
-      const resUsers = await fetch("http://localhost:8080/api/users/all", {
+      const resUsers = await fetch(`${API_BASE_URL}/api/users/all`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const usersData = await resUsers.json();

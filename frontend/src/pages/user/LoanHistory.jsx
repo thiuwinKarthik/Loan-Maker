@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../components/layout/Navbar";
 import Sidebar from "../../components/layout/Sidebar";
 import { toast } from "react-toastify";
+import { API_BASE_URL } from "../../shared/config/env";
 import { CheckCircle, XCircle, FileText, Download } from "lucide-react";
 import Modal from "../../components/common/Modal";
 
@@ -26,14 +27,14 @@ const LoanHistory = () => {
     if (!token) return;
     setLoading(true);
     try {
-      const resUser = await fetch("http://localhost:8080/api/users/profile", {
+      const resUser = await fetch(`${API_BASE_URL}/api/users/profile`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const userData = await resUser.json();
       setUser(userData);
 
       const resLoans = await fetch(
-        `http://localhost:8080/api/loans/applications/${userData.id}`,
+        `${API_BASE_URL}/api/loans/applications/${userData.id}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       const loansData = await resLoans.json();

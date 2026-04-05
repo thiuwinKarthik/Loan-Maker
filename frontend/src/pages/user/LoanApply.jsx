@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../../components/layout/Navbar";
+import { API_BASE_URL } from "../../shared/config/env";
 import Sidebar from "../../components/layout/Sidebar";
 import { toast } from "react-toastify";
 
@@ -52,7 +53,7 @@ const LoanApply = () => {
     const fetchAssets = async () => {
       if (!user || !token) return;
       try {
-        const res = await fetch(`http://localhost:8080/api/assets/${user.id}`, {
+        const res = await fetch(`${API_BASE_URL}/api/assets/${user.id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) throw new Error("Failed to fetch assets");
@@ -87,7 +88,7 @@ const LoanApply = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:8080/api/loans/apply/${user.id}/${selectedProvider}/${selectedAsset}`,
+        `${API_BASE_URL}/api/loans/apply/${user.id}/${selectedProvider}/${selectedAsset}`,
         {
           method: "POST",
           headers: {

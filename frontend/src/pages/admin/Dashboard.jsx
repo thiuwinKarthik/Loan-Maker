@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../components/layout/Navbar";
 import Sidebar from "../../components/layout/Sidebar";
 import { Link } from "react-router-dom";
+import { API_BASE_URL } from "../../shared/config/env";
 import { Users, FileText, CheckCircle, XCircle, Clock, ShieldCheck, Activity, BrainCircuit } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
@@ -28,9 +29,9 @@ const AdminDashboard = () => {
         const headers = { Authorization: `Bearer ${token}` };
         
         const [resUsers, resLoans, resAllUsers] = await Promise.all([
-          fetch("http://localhost:8080/api/users/stats", { headers }),
-          fetch("http://localhost:8080/api/loans/stats", { headers }),
-          fetch("http://localhost:8080/api/users/all", { headers })
+          fetch(`${API_BASE_URL}/api/users/stats`, { headers }),
+          fetch(`${API_BASE_URL}/api/loans/stats`, { headers }),
+          fetch(`${API_BASE_URL}/api/users/all`, { headers })
         ]);
 
         const [users, loansData, allUsers] = await Promise.all([
@@ -43,7 +44,7 @@ const AdminDashboard = () => {
         const loansWithUser = await Promise.all(
           allUsers.map(async (user) => {
             const resUserLoans = await fetch(
-              `http://localhost:8080/api/loans/applications/${user.id}`,
+              `${API_BASE_URL}/api/loans/applications/${user.id}`,
               { headers }
             );
             const userLoans = resUserLoans.ok ? await resUserLoans.json() : [];

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../components/layout/Navbar";
 import Sidebar from "../../components/layout/Sidebar";
 import { Link } from "react-router-dom";
+import { API_BASE_URL } from "../../shared/config/env";
 import { userApi } from "../../features/user/api";
 import { session } from "../../shared/auth/session";
 import { CreditCard, TrendingUp, ShieldCheck, ArrowRight, AlertCircle, Sparkles } from "lucide-react";

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Sidebar from "../../components/layout/Sidebar";
 import Navbar from "../../components/layout/Navbar";
 import { toast } from "react-toastify";
+import { API_BASE_URL } from "../../shared/config/env";
 
 const AdminUsers = () => {
   const token = localStorage.getItem("token");
@@ -17,7 +18,7 @@ const AdminUsers = () => {
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:8080/api/users/all", {
+      const res = await fetch(`${API_BASE_URL}/api/users/all`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!res.ok) throw new Error("Failed to fetch users");
@@ -56,7 +57,7 @@ const AdminUsers = () => {
     setPromotingIds((prev) => [...prev, userId]);
 
     try {
-      const res = await fetch(`http://localhost:8080/api/admin/users/promote/${userId}`, {
+      const res = await fetch(`${API_BASE_URL}/api/admin/users/promote/${userId}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
